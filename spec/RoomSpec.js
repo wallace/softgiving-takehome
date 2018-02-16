@@ -37,4 +37,10 @@ describe("Room", function() {
 
     expect(room.west_connection).toEqual(5);
   });
+
+  it("should have no items", function() {
+    room = new Room(1, "shovel room", 3, 2, 4, 5)
+
+    expect(room.items).toEqual([]);
+  });
 });
