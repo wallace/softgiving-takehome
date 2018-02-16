@@ -14,4 +14,9 @@ describe("Player", function() {
     expect(player.inventory).toEqual([]);
   });
 
+  it("should have a score", function() {
+    player = new Player(1);
+
+    expect(player.score()).toEqual(0);
+  });
 });
