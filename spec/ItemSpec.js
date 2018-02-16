@@ -30,4 +30,10 @@ describe("Item", function() {
 
     expect(item.text).toEqual("shovel description");
   });
+
+  it("should have no items", function() {
+    item = new Item(1, "shovel", 3, 20, "shovel description")
+
+    expect(item.items).toEqual([]);
+  });
 });
