@@ -16,6 +16,7 @@ let player = new Player();
 
 let starting_room = rooms.find((e) => { return e.external_id == 1 });
 let game = new Game(rooms, player, starting_room);
+game.distribute_items(items);
 
 (async () => {
   while(!game.over) {
