@@ -38,11 +38,11 @@ let player = new Player();
 // TODO: items
 
 let starting_room = 1;
-let game = new Game(rooms, player, starting_room);
+let game = new Game(rooms, player, { 'name' : 'fake room' });
 
 (async () => {
   while(!game.over) {
-    await prompt({ type : 'input', name : 'beginning', message : game.current_prompt })
+    await prompt({ type : 'input', name : 'beginning', message : game.current_prompt() })
     .then(answer => {
       game.process_command(answer); // updates game state and current_prompt
     });
