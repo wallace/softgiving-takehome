@@ -60,4 +60,16 @@ describe("Game", function() {
 
     expect(game.current_room.items).toEqual([item])
   });
+
+  it("should put items in items", () => {
+    starting_room = new Room(1, "shovel room", 2, 0, 0, 0);
+    container = new Item(1, "shovel", 2, 20, "shiny shovel with a pocket")
+    lint = new Item(1, "lint", -1, 2, "likes to be a in a pocket")
+    game = new Game([starting_room], { score: () => 2 }, starting_room);
+
+    game.distribute_items([container, lint]);
+
+    expect(game.current_room.items).toEqual([])
+    expect(container.items).toEqual([lint])
+  });
 });
