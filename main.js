@@ -28,6 +28,7 @@ program
 const RoomParser = require('./lib/RoomParser')
 const Player = require('./lib/player')
 const Game = require('./lib/game')
+const Room = require('./lib/room')
 
 // set up game
 let room_parser = new RoomParser('rooms.csv');
@@ -38,7 +39,9 @@ let player = new Player();
 // TODO: items
 
 let starting_room = 1;
-let game = new Game(rooms, player, { 'name' : 'fake room' });
+let fake_starting_room = new Room(1, 'fake room', 0,0,0,0);
+fake_starting_room.add_item({ 'name': 'shiny shovel' });
+let game = new Game(rooms, player, fake_starting_room);
 
 (async () => {
   while(!game.over) {
