@@ -1,6 +1,7 @@
 describe("Game", function() {
-  var Game = require('../lib/Game');
-  var game;
+  const Game = require('../lib/Game');
+  const Room = require('../lib/room');
+  let game;
 
   it("should have no rooms", function() {
     game = new Game([], "player");
@@ -24,5 +25,12 @@ describe("Game", function() {
     game = new Game([], { score: () => 2 }, { visible_items: () => [] });
 
     expect(game.current_prompt()).toEqual("undefined\nYou see: \nCurrent score: 2\n");
+  });
+
+  it("should display error when direction is invalid", () => {
+    starting_room = new Room(1, "shovel room", 0, 0, 0, 0);
+    game = new Game([starting_room], { score: () => 2 }, starting_room);
+
+    expect(game.move("north")).toEqual("Ouch! You bang your knee. There's no door there!");
   });
 });
