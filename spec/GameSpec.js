@@ -40,4 +40,14 @@ describe("Game", function() {
 
     expect(game.move("north")).toEqual("Something magical has happened and the room is gone!");
   });
+
+
+  it("should set the new room", () => {
+    starting_room = new Room(1, "shovel room", 2, 0, 0, 0);
+    new_room = new Room(2, "duck room", 0, 1, 0, 0);
+    game = new Game([starting_room, new_room], { score: () => 2 }, starting_room);
+    game.move("north");
+
+    expect(game.current_room).toEqual(new_room);
+  });
 });
