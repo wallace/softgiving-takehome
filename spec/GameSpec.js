@@ -1,6 +1,7 @@
 describe("Game", function() {
   const Game = require('../lib/Game');
   const Room = require('../lib/room');
+  const Item = require('../lib/item');
   let game;
 
   it("should have no rooms", function() {
@@ -41,7 +42,6 @@ describe("Game", function() {
     expect(game.move("north")).toEqual("Something magical has happened and the room is gone!");
   });
 
-
   it("should set the new room", () => {
     starting_room = new Room(1, "shovel room", 2, 0, 0, 0);
     new_room = new Room(2, "duck room", 0, 1, 0, 0);
@@ -49,5 +49,15 @@ describe("Game", function() {
     game.move("north");
 
     expect(game.current_room).toEqual(new_room);
+  });
+
+  it("should put items in rooms", () => {
+    starting_room = new Room(1, "shovel room", 2, 0, 0, 0);
+    item = new Item(1, "shovel", 1, 20, "shiny shovel")
+    game = new Game([starting_room], { score: () => 2 }, starting_room);
+
+    game.distribute_items([item]);
+
+    expect(game.current_room.items).toEqual([item])
   });
 });
