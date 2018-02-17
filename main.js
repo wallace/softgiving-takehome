@@ -2,27 +2,27 @@ const program = require('commander');
 const { prompt } = require('inquirer'); // require inquirerjs library
 
 program
-  .command('north')
-  .action(() => {
-    console.log("implement north")
+.command('north')
+.action(() => {
+  console.log("implement north")
 });
 
 program
-  .command('south')
-  .action(() => {
-    console.log("implement south")
+.command('south')
+.action(() => {
+  console.log("implement south")
 });
 
 program
-  .command('east')
-  .action(() => {
-    console.log("implement east")
+.command('east')
+.action(() => {
+  console.log("implement east")
 });
 
 program
-  .command('west')
-  .action(() => {
-    console.log("implement west")
+.command('west')
+.action(() => {
+  console.log("implement west")
 });
 
 const RoomParser = require('./lib/RoomParser')
@@ -40,12 +40,11 @@ let player = new Player();
 let starting_room = 1;
 let game = new Game(rooms, player, starting_room);
 
-while(!game.over) {
-  prompt({ type : 'input', name : 'beginning', message : game.current_prompt }).then(answer => console.log('cgood'));
-  game.over = true;
-}
-
-//while (true) {
-//  prompt("You are in").then
-//}
-//program.parse(prompt("You are in").then(command => program.parse("Again"))
+(async () => {
+  while(!game.over) {
+    await prompt({ type : 'input', name : 'beginning', message : game.current_prompt })
+    .then(answer => {
+      game.process_command(answer); // updates game state and current_prompt
+    });
+  }
+})();
