@@ -1,29 +1,4 @@
-const program = require('commander');
 const { prompt } = require('inquirer'); // require inquirerjs library
-
-program
-.command('north')
-.action(() => {
-  console.log("implement north")
-});
-
-program
-.command('south')
-.action(() => {
-  console.log("implement south")
-});
-
-program
-.command('east')
-.action(() => {
-  console.log("implement east")
-});
-
-program
-.command('west')
-.action(() => {
-  console.log("implement west")
-});
 
 const RoomParser = require('./lib/RoomParser')
 const Player = require('./lib/player')
@@ -47,7 +22,7 @@ let game = new Game(rooms, player, fake_starting_room);
   while(!game.over) {
     await prompt({ type : 'input', name : 'beginning', message : game.current_prompt() })
     .then(answer => {
-      game.process_command(answer); // updates game state and current_prompt
+      game.process_command(answer.beginning);
     });
   }
 })();
