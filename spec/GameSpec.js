@@ -21,8 +21,8 @@ describe("Game", function() {
   });
 
   it("should have the current prompt", function() {
-    game = new Game([], { score: () => 2 }, 1);
+    game = new Game([], { score: () => 2 }, { visible_items: () => [] });
 
-    expect(game.current_prompt()).toEqual("undefined\nYou see: undefined\nCurrent score: 2");
+    expect(game.current_prompt()).toEqual("undefined\nYou see: \nCurrent score: 2\n");
   });
 });
