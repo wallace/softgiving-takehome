@@ -49,6 +49,6 @@ describe("Room", function() {
     room.add_item({ 'name' : 'shiny shovel' });
     room.add_item({ 'name' : 'dingy duck' });
 
-    expect(room.visibile_items()).toEqual('shiny shovel, dingy duck');
+    expect(room.visible_items()).toEqual('shiny shovel, dingy duck');
   });
 });
