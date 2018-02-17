@@ -19,4 +19,10 @@ describe("Game", function() {
 
     expect(game.current_room).toEqual(1);
   });
+
+  it("should have the current prompt", function() {
+    game = new Game([], null, 1);
+
+    expect(game.current_prompt()).toEqual("the current room prompt");
+  });
 });
