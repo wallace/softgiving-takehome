@@ -36,4 +36,11 @@ describe("Item", function() {
 
     expect(item.items).toEqual([]);
   });
+
+  it("can add an item", function() {
+    item = new Item(1, "shovel room", 3, 2, 4)
+    item.add_item("item")
+
+    expect(item.items).toEqual(["item"]);
+  });
 });
