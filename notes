@@ -1,0 +1,43 @@
+x STDIN command parsing 
+x CSV parsing
+  x items
+    x set up items in rooms
+  x rooms
+    x set up rooms
+x ability to move from room to room
+x room display code
+x event loop
+x state to track
+  x current room
+  x players inventory
+x items can contain other items
+  - visible
+
+Game
+  Rooms
+    Items
+      <Items>
+  Player
+    Current Room
+    Inventory
+    Score
+
+how to handle moving from one room to the next? index into room array and check
+for available directions
+
+Requirements 
+
+npm install csv
+npm install jasmine-npm
+npm install -g jasmine
+npm install async
+npm install commander
+npm install inquirer
+
+
+
+const util = require('util');
+console.log(`answer: ${util.inspect(items, false, null)}`);
+
+
+
