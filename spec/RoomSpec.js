@@ -43,4 +43,12 @@ describe("Room", function() {
 
     expect(room.items).toEqual([]);
   });
+
+  it("should have visible_items", function() {
+    room = new Room(1, "shovel room", 3, 2, 4, 5);
+    room.add_item({ 'name' : 'shiny shovel' });
+    room.add_item({ 'name' : 'dingy duck' });
+
+    expect(room.visibile_items()).toEqual('shiny shovel, dingy duck');
+  });
 });
