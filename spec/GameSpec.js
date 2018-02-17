@@ -33,4 +33,11 @@ describe("Game", function() {
 
     expect(game.move("north")).toEqual("Ouch! You bang your knee. There's no door there!");
   });
+
+  it("should display error when room id is invalid", () => {
+    starting_room = new Room(1, "shovel room", 2, 0, 0, 0);
+    game = new Game([starting_room], { score: () => 2 }, starting_room);
+
+    expect(game.move("north")).toEqual("Something magical has happened and the room is gone!");
+  });
 });
