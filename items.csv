@@ -1,0 +1,13 @@
+1,table,2,0,
+2,plates,2,0,
+3,moldy food,2,0,I wouldn't eat it!
+4,wardrobe,7,0,It is made of fine wood but is not aging well.
+5,clothes,-4,0,Looks like they've been eaten by moths.
+6,books,6,5,These are software architecture books. A lot of works by Fowler.
+7,desk,6,0,
+8,cabinet,5,0,It is old and falling apart. There are spider webs in the corners.
+9,cookware,3,0,
+10,spices,3,5,These exotic and rare spices look valuable and they smell pretty strong!
+11,papers,-7,0,Looks like old tax documents.
+12,treasure chest,8,0,Someone left it unlocked! There's gold inside!
+13,gold coins,-12,15,These gold coins are very shiny and look very valuable.

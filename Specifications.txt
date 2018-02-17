@@ -1,0 +1,58 @@
+Text Adventure Game
+Implement using Node JS
+
+This program is an "old school" style text adventure game. The program will display some text about a location the player is in and will accept, via STDIN, simple verb/noun commands from the player. The game will load its data from CSV files.
+
+The game has two major components: ROOMs and ITEMs. Rooms are locations that the player can be in. They are connected by the four directions of the compass (north, south, east, west). Items are objects that the player can pick up while exploring the rooms of the game. Items can be located inside a room or they can be hidden inside of other items. Some items have a score value. The more items a player collects, the higher the score.
+
+Each round of play consists of printing out the room description and any items located in the room. An example of output would be:
+
+	You are in the dining room of the haunted house.
+	You see: table, plates, moldy food
+	Current score: 54
+	
+After printing the data, the game will accept a text command from the player. The following commands must be accepted:
+
+	north
+	south
+	east
+	west
+	get <item name> (Player can only get an item that is present in the room)
+	drop <item name> (Drops an item, placing it back in the current room)
+	examine <item name> (Will print what happens when player examines an item and possibly reveal another hidden item)
+	inventory (Will print a list of all items the player is carrying)
+	look (Will re-print the room name and the list of items in the room)
+
+Your program code should parse the command input, validate the command and print the appropriate response or an error message.
+
+When a player examines an item, any items hidden inside are now considered present in the room and should show up in the list of visible items and is GET'able by the player.
+
+Attached are two data files that contain the game's data. The first file, called ROOMS.CSV, conatains all of the room names and connection information. The fields are, in order:
+
+	- room ID (integer > 0)
+	- name
+	- north connection (ID of room to connect to if the player goes this direction, 0 if player cannot go this way)
+	- south connection (ID of room to connect to if the player goes this direction, 0 if player cannot go this way)
+	- east connection (ID of room to connect to if the player goes this direction, 0 if player cannot go this way)
+	- west connection (ID of room to connect to if the player goes this direction, 0 if player cannot go this way)
+
+The special directional value of -1 is reserved for the "exit" room that ends the game. When the game ends, output "Game Over" and print the final score.
+
+The second file, named ITEMS.CSV, contains all of the items in the game. The fields are, in order:
+
+	- item ID (integer > 0)
+	- name
+	- location (if > 0, id of room where this item resides; if < 0 then the id assumes this item is hidden inside another item whose id is the absolute value of this field's contents; example, -3 would mean this item is hidden inside item #3)
+	- score 
+	- examine text (text to print if the player examines this item; if blank, then print a generic message such as 'There's nothing special about it')
+
+At startup, your program should read both files and store contents into memory using whatever data structures you feel are appropriate. The program should validate the files and print out errors if there is a read problem or bad data. Play starts in room #1. The game ends whenever the player moves in a direction with a connection ID of -1.
+
+Carefully consider the design of the program structure and consider using a unit testing framework to unit test complex portions of the code. This is a large program for an exercise so prioritize features - it is OK if not all functions are fully working or implemented. Be prepared to present your program and defend your design.
+
+Bonus points for adding additional features to the game. Examples:
+ - Not being able to GET heavy items like furniture
+ - Having a ghost that randomly appears and steals items from the player
+ - Adding secret doors
+ - Get creative!
+ 
